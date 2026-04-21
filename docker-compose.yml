@@ -1,13 +1,15 @@
-version: "3.9"
-
+version: "3.8"
 services:
   collector:
     build: .
-    container_name: traffic-collector
+    image: yourrepo/traffic-collector:latest
     restart: unless-stopped
-    network_mode: host
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/local/x-ui:/usr/local/x-ui:ro
-    env_file:
-      - .env
+    env_file: .env
+    environment:
+      - INTERVAL=60
+      - HEALTH_PORT=9229
+    networks:
+      - backend
+networks:
+  backend:
+    driver: bridge
