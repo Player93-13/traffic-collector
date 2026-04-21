@@ -1,8 +1,7 @@
 version: "3.8"
 services:
   collector:
-    build: .
-    image: yourrepo/traffic-collector:latest
+    image: ghcr.io/Player93-13/traffic-collector:latest
     restart: unless-stopped
     env_file: .env
     environment:
@@ -10,6 +9,7 @@ services:
       - HEALTH_PORT=9229
     networks:
       - backend
+
 networks:
   backend:
     driver: bridge
