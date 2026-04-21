@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   collector:
-    image: ghcr.io/Player93-13/traffic-collector:latest
+    image: ghcr.io/player93-13/traffic-collector:latest
     restart: unless-stopped
     env_file: .env
     environment:
